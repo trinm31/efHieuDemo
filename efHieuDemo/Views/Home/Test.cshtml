@@ -1,0 +1,31 @@
+@model List<efHieuDemo.Models.People>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>This is my first view </h2>
+<button type="button" class="btn btn-success">Success</button>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Des</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var people in Model)
+    {
+        <tr>
+            <th scope="row">@people.Id</th>
+            <td>@people.Name</td>
+            <td>@people.Age</td>
+            <td>@people.Description</td>
+        </tr>
+    }
+    </tbody>
+</table>

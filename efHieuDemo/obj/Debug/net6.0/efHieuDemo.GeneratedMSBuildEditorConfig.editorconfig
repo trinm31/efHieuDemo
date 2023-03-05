@@ -23,6 +23,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/tringuyen/RiderProjects/efHieuDemo/efHieuDemo/Views/Home/Test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9UZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tringuyen/RiderProjects/efHieuDemo/efHieuDemo/Views/People/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVvcGxlL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/tringuyen/RiderProjects/efHieuDemo/efHieuDemo/Views/People/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVvcGxlL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/tringuyen/RiderProjects/efHieuDemo/efHieuDemo/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

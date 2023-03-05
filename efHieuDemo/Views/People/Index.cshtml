@@ -1,0 +1,31 @@
+@model List<efHieuDemo.Models.People>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>People Table</h2>
+<a type="button" class="btn btn-success" asp-controller="People" asp-action="Create">Create</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Des</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var people in Model)
+    {
+        <tr>
+            <th scope="row">@people.Id</th>
+            <td>@people.Name</td>
+            <td>@people.Age</td>
+            <td>@people.Description</td>
+        </tr>
+    }
+    </tbody>
+</table>
