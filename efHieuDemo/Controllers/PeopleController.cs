@@ -31,4 +31,33 @@ public class PeopleController : Controller
         _db.SaveChanges();
         return RedirectToAction(nameof(Index));
     }
+    
+    public IActionResult Update(int peopleId)
+    {
+        var people = _db.Peoples.Find(peopleId);
+        return View(people);
+    }
+    
+    [HttpPost]
+    public IActionResult Update(People people)
+    {
+        var peopleFromDb = _db.Peoples.Find(people.Id);
+        peopleFromDb.Name = people.Name;
+        peopleFromDb.Age = people.Age;
+        peopleFromDb.Description = people.Description;
+        
+        _db.Peoples.Update(peopleFromDb);
+        _db.SaveChanges();
+        return RedirectToAction(nameof(Index));
+    }
+    
+    [HttpGet]
+    public IActionResult Delete(int peopleId)
+    {
+        var people = _db.Peoples.Find(peopleId);
+        _db.Peoples.Remove(people);
+        _db.SaveChanges();
+        
+        return RedirectToAction(nameof(Index));
+    }
 }

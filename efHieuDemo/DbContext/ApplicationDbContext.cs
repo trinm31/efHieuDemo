@@ -11,5 +11,7 @@ public class ApplicationDbContext: Microsoft.EntityFrameworkCore.DbContext
     }
 
     public DbSet<People> Peoples { get; set; }
+
+    public DbSet<Test> Tests { get; set; }
     public DbSet<Address> Addresses { get; set; }
 }

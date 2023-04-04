@@ -11,8 +11,8 @@ using efHieuDemo.DbContext;
 namespace efHieuDemo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230127094347_initdb")]
-    partial class initdb
+    [Migration("20230324140654_initDB")]
+    partial class initDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

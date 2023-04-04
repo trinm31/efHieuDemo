@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<efHieuDemo.Models.People>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +7,27 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach (var people in Model)
+  {
+      <tr>
+          <th scope="row">@people.Id</th>
+          <td>@people.Name</td>
+          <td>@people.Age</td>
+          <td>@people.Description</td>
+      </tr>
+  }
+  
+  </tbody>
+</table>
+

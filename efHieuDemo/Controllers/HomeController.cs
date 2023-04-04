@@ -18,7 +18,25 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        // var people = new People()
+        // {
+        //     Name = "Nguyen Minh Tri",
+        //     Age = 12,
+        //     Description = "dep trai"
+        // };
+        //
+        // _db.Peoples.Add(people);
+        // _db.SaveChanges();
+
+        // var people = _db.Peoples.Find(1);
+        // _db.Peoples.Remove(people);
+        // _db.SaveChanges();
+
+        //var peoples = _db.Peoples.ToList();
+
+        //var peoples = _db.Peoples.Where(p => p.Age >= 12).ToList();
+        var peoples = _db.Peoples.ToList();
+        return View(peoples);
     }
 
     public IActionResult Privacy()

@@ -15,6 +15,7 @@
         <th scope="col">Name</th>
         <th scope="col">Age</th>
         <th scope="col">Des</th>
+        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -25,6 +26,14 @@
             <td>@people.Name</td>
             <td>@people.Age</td>
             <td>@people.Description</td>
+            <td>
+                <a type="button" 
+                   class="btn btn-warning" asp-controller="People" asp-action="Update" 
+                   asp-route-peopleId="@people.Id">Update</a>
+                <a type="button"
+                   class="btn btn-danger" asp-controller="People" asp-action="Delete"
+                   asp-route-peopleId="@people.Id">Delete</a>
+            </td>
         </tr>
     }
     </tbody>

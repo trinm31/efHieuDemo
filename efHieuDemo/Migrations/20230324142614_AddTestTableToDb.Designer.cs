@@ -11,8 +11,8 @@ using efHieuDemo.DbContext;
 namespace efHieuDemo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230127095246_AddAddressTableToDb")]
-    partial class AddAddressTableToDb
+    [Migration("20230324142614_AddTestTableToDb")]
+    partial class AddTestTableToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,28 +22,6 @@ namespace efHieuDemo.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("efHieuDemo.Models.Address", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("PeopleId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Position")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PeopleId");
-
-                    b.ToTable("Addresses");
-                });
 
             modelBuilder.Entity("efHieuDemo.Models.People", b =>
                 {
@@ -69,15 +47,21 @@ namespace efHieuDemo.Migrations
                     b.ToTable("Peoples");
                 });
 
-            modelBuilder.Entity("efHieuDemo.Models.Address", b =>
+            modelBuilder.Entity("efHieuDemo.Models.Test", b =>
                 {
-                    b.HasOne("efHieuDemo.Models.People", "People")
-                        .WithMany()
-                        .HasForeignKey("PeopleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Navigation("People");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tests");
                 });
 #pragma warning restore 612, 618
         }
