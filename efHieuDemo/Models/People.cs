@@ -7,7 +7,7 @@ public class People
     [Key]
     public int Id { get; set; }
     
-    [Required]
+    [Required(ErrorMessage = "Ban can nhap vao ten")]
     public string Name { get; set; }
 
     public int Age { get; set; }

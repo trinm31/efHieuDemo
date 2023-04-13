@@ -11,8 +11,8 @@ using efHieuDemo.DbContext;
 namespace efHieuDemo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230324142614_AddTestTableToDb")]
-    partial class AddTestTableToDb
+    [Migration("20230410094727_initdb")]
+    partial class initdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,6 +22,28 @@ namespace efHieuDemo.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("efHieuDemo.Models.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("PeopleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PeopleId");
+
+                    b.ToTable("Addresses");
+                });
 
             modelBuilder.Entity("efHieuDemo.Models.People", b =>
                 {
@@ -62,6 +84,17 @@ namespace efHieuDemo.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tests");
+                });
+
+            modelBuilder.Entity("efHieuDemo.Models.Address", b =>
+                {
+                    b.HasOne("efHieuDemo.Models.People", "People")
+                        .WithMany()
+                        .HasForeignKey("PeopleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("People");
                 });
 #pragma warning restore 612, 618
         }

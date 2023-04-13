@@ -31,11 +31,16 @@ public class HomeController : Controller
         // var people = _db.Peoples.Find(1);
         // _db.Peoples.Remove(people);
         // _db.SaveChanges();
+        
+        // var people = _db.Peoples.Find(1);
+        // people.Name = "Test update";
+        // _db.Peoples.Update(people);
+        // _db.SaveChanges();
 
         //var peoples = _db.Peoples.ToList();
 
-        //var peoples = _db.Peoples.Where(p => p.Age >= 12).ToList();
-        var peoples = _db.Peoples.ToList();
+        var peoples = _db.Peoples.Where(p => p.Age >= 12).ToList();
+        //var peoples = _db.Peoples.ToList();
         return View(peoples);
     }
 

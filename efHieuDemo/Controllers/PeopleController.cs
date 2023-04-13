@@ -13,12 +13,14 @@ public class PeopleController : Controller
     }
     
     // GET
+    [HttpGet]
     public IActionResult Index()
     {
         var people = _db.Peoples.ToList();
         return View(people);
     }
     
+    [HttpGet]
     public IActionResult Create()
     {
         return View(new People());
@@ -27,9 +29,14 @@ public class PeopleController : Controller
     [HttpPost]
     public IActionResult Create(People people)
     {
-        _db.Peoples.Add(people);
-        _db.SaveChanges();
-        return RedirectToAction(nameof(Index));
+        if (ModelState.IsValid)
+        {
+            _db.Peoples.Add(people);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+        return View(people);
     }
     
     public IActionResult Update(int peopleId)
@@ -52,9 +59,9 @@ public class PeopleController : Controller
     }
     
     [HttpGet]
-    public IActionResult Delete(int peopleId)
+    public IActionResult Delete(int test)
     {
-        var people = _db.Peoples.Find(peopleId);
+        var people = _db.Peoples.Find(test);
         _db.Peoples.Remove(people);
         _db.SaveChanges();
         
